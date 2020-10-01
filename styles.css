@@ -1,0 +1,13 @@
+body {
+    font-family: sans-serif;
+}
+
+.types li {
+    float: left;
+    padding-right: 10px;
+}
+
+.types {
+    list-style: none;
+    padding-left: 0;
+}
