@@ -1,77 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>JS Reference VS Copy</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-  <script>
-    // start with strings, numbers and booleans
-    let age = 100
-    let age2 = age
-    console.log(age, age2)
-    age = 200
-    console.log(age, age2)
+  <h1>Reference - Copy - Deep Copy</h1>
+  <p>
+    Select the type of obj cloning method below then click "update copy" to
+    update:
+  </p>
+  <ul>
+    <li>The copied objects name property to "Nik"</li>
+    <li>The external object property to "1st Mate"</li>
+  </ul>
+  <p>
+    Observe how the original and the copy properyts change under each method
+  </p>
+  <p>You can check the console for a more indepth look at the objects.</p>
 
-    let name = 'Nik'
-    let name2 = name
-    console.log(name, name2)
-    name = 'Rowe'
-    console.log(name, name2)
+  <ul class="types">
+    <li>
+      <input type="radio" id="ref" name="type" value="Reference" />
+      <label for="ref">Reference</label>
+    </li>
+    <li>
+      <input type="radio" id="shallow" name="type" value="Shallow Copy" />
+      <label for="shallow">Shallow</label>
+    </li>
+    <li>
+      <input type="radio" id="deep" name="type" value="Deep Copy" />
+      <label for="deep">Deep</label>
+    </li>
+  </ul>
+  <br />
+  <p>
+    <input type="button" id="make" value="Reset Original" />
+    <input type="button" id="update" value="Update Copy" />
+  </p>
+  <p>This is a <span id="type"></span></p>
+  <p>Original: <span id="original"></span></p>
+  <p>Copy: <span id="copy"></span></p>
 
-    // Let's say we have an array
-    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
-
-    // and we want to make a copy of it.
-    const team = players
-    console.log(players, team)
-
-    // You might think we can just do something like this:
-    // team[3] = 'Lux'
-
-    // however what happens when we update that array?
-    // now here is the problem!
-    // oh no - we have edited the original array too!
-    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
-    // So, how do we fix this? We take a copy instead!
-
-    // one way
-    const team2 = players.slice()
-
-    // or create a new array and concat the old one in
-    const team3 = [].concat(players)
-
-    // or use the new ES6 Spread
-    const team4 = [...players]
-
-    // or array.from()
-    const team5 = Array.from(players)
-
-    // now when we update it, the original one isn't changed
-
-    // The same thing goes for objects, let's say we have a person object
-
-    // with Objects
-    const person = {
-      name: 'Wes Bos',
-      age: 80
-    };
-
-    // and think we make a copy:
-    // const captain = person
-    // captain.number = 99
-
-    // how do we take a copy instead?
-    const cap2 = Object.assign({}, person, { number: 99 })
-    console.log(cap2)
-
-    // We will hopefully soon see the object ...spread
-    const cap3 = {...person}
-
-    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
-
-  </script>
+  <script src="demonstrationScript.js"></script>
+  <script src="tutorialScript.js"></script>
 
 </body>
+
 </html>
